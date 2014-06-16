@@ -22,6 +22,7 @@ class Entry(Base):
     name = Column(String(100), nullable=False)
     external_id = Column(String(50), nullable=False)
     collection_id = Column(ForeignKey('collection.id'), nullable=False)
+    code = Column(String(50), nullable=False, unique=True, default=func.uuid())
     response = Column(Enum('accept', 'decline'), nullable=True)
     invoice = Column(String(50), nullable=True)
     reviews = relationship('Review', backref='entry')
