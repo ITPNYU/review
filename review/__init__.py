@@ -21,10 +21,10 @@ def add_cors_header(response):
 # Flask-Restless API endpoints
 # note: GET preprocessors pulled in via review.authn.auth_func
 manager = APIManager(app, session=db_session, preprocessors=dict(GET_SINGLE=[auth_func], GET_MANY=[auth_func]))
-collection_blueprint = manager.create_api(Collection, methods=['GET', 'DELETE', 'PATCH', 'POST', 'PUT'], collection_name='collection', url_prefix='/v1', max_results_per_page=300)
-decision_blueprint = manager.create_api(Decision, methods=['GET', 'DELETE', 'PATCH', 'POST', 'PUT'], collection_name='decision', url_prefix='/v1', max_results_per_page=300)
-entry_blueprint = manager.create_api(Entry, methods=['GET', 'DELETE', 'PATCH', 'POST', 'PUT'], collection_name='entry', url_prefix='/v1', max_results_per_page=300)
-review_blueprint = manager.create_api(Review, methods=['GET', 'DELETE', 'PATCH', 'POST', 'PUT'], collection_name='review', url_prefix='/v1', max_results_per_page=300)
+collection_blueprint = manager.create_api(Collection, methods=['GET', 'DELETE', 'PATCH', 'POST', 'PUT'], collection_name='collection', url_prefix='/v1', max_results_per_page=600)
+decision_blueprint = manager.create_api(Decision, methods=['GET', 'DELETE', 'PATCH', 'POST', 'PUT'], collection_name='decision', url_prefix='/v1', max_results_per_page=600)
+entry_blueprint = manager.create_api(Entry, methods=['GET', 'DELETE', 'PATCH', 'POST', 'PUT'], collection_name='entry', url_prefix='/v1', max_results_per_page=600)
+review_blueprint = manager.create_api(Review, methods=['GET', 'DELETE', 'PATCH', 'POST', 'PUT'], collection_name='review', url_prefix='/v1', max_results_per_page=600)
 
 app.after_request(add_cors_header)
 
